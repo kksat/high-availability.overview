@@ -1,0 +1,4 @@
+= High Availability for SAP
+
+link:SUSE-HA-resources.adoc[SUSE High Availability Resources for SAP]::
+This document gives a brief overview, where to find resources for SUSE's High Availability solutions for SAP.

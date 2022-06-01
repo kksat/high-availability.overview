@@ -1,0 +1,72 @@
+= SUSE High Availability Resources for SAP
+:toc:
+:toc-placement!:
+:toclevels: 3
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+
+This document gives a brief overview, where to find resources for SUSE's High Availability solutions for SAP. 
+
+toc::[]
+
+== GitHub Repositories
+
+All components of SUSE's cluster solutions for SAP are Open Source and maintained on GitHub. For historical reasons, some components are part of the https://github.com/clusterlabs[ClusterLabs GitHub Organization]. This includes the SAPInstance and SAPDatabase resource agents. Other components, where the development has been initiated by SUSE, are part of the https://github.com/SUSE[SUSE GitHub Organization]. This includes SAPHanaSR resource agents, that automate the SAP HANA System Replication in Pacemaker clusters.
+
+=== Maintained within the ClusterLabs GitHub Organization
+
+https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/SAPInstance[SAPInstance]:: 
+OCF resource agent that controls SAP NetWeaver in a Pacemaker cluster.
+
+https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/SAPDatabase[SAPDatabase]::
+OCF resource agent that controls AnyDB (Oracle, IBM DB2 and others) in a Pacemaker cluster.
+
+Both resource agents are part of the https://github.com/ClusterLabs/resource-agents/tree/main/heartbeat[ClusterLabs/resource-agents] repository.
+
+=== Maintained within the SUSE GitHub Organization
+
+https://github.com/SUSE/SAPHanaSR[SUSE/SAPHanaSR]::
+SAPHanaSR provides an automatic failover between SAP HANA nodes with configured System Replication in HANA Scale-Up setups. The repository includes the Pacemaker / OCF resource agents SAPHana and SAPHanaTopology, that controls the SAP HANA System Replication for scale-up setups. More information can be found in the repositories https://github.com/SUSE/SAPHanaSR/blob/master/README.md[README.md] file.
+
+https://github.com/SUSE/SAPHanaSR-ScaleOut[SUSE/SAPHanaSR-Scale-Out]::
+SAPHanaSR Scale-Out provides an automatic failover between SAP HANA nodes with configured System Replication for complex HANA Scale-Out configurations running in two different locations. The repository includes the Pacemaker / OCF resource agents SAPHanaController and SAPHanaTopology, required fora the control of the SAP HANA System Replication for scale-out scenarios. More information can be found in the repositories https://github.com/SUSE/SAPHanaSR-ScaleOut/blob/master/README.md[README.md] file.
+
+https://github.com/SUSE/SAPStartSrv-resourceAgent[SUSE/SAPStartSrv-resourceAgent]::
+This project is to implement a resource-agent for the instance specific SAP start framework. It controls the instance specific sapstartsrv process which provides the API to start, stop and check an SAP instance. It includes the SAPStartSrv resource agent. More information can be found in the repositories https://github.com/SUSE/SAPStartSrv-resourceAgent/blob/master/README.md[README.md] file.
+
+The source repositories are being used by SUSE to build RPM packages. These packages can be installed through our https://www.suse.com/de-de/products/sles-for-sap/[SLES for SAP] Linux distributions for SAP.
+
+== SUSE Best-Practice Guides
+
+SUSE maintains a sophisticated set of Best-Practice guides, that explain the installation and configurations of certain High Availability scenarios for SAP HANA, SAP S/4HANA and SAP NetWeaver. These guides should always be the entry-point, when installing a new SAP HA cluster on SUSE. They also refer to the correct SUSE RPM packages, that are required for a certain scenario.
+
+The following list gives a selection of SUSE's Best-Practice Guides, describing the most common SAP HA scenarios. A list of all available Best-Practice Guides https://documentation.suse.com/sbp/all/[can be found here].
+
+Some important Best-Practice Guides
+
+* https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html[SAP HANA System Replication Scale-Up - Cost Optimized Scenario] for SLES for SAP 15
+
+* https://documentation.suse.com/sbp/all/html/SAP-S4HA10-setupguide-sle15/index.html[SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster - Setup Guide] for SLES for SAP 15
+
+* https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-scaleOut-PerfOpt-15/index.html[SAP HANA System Replication Scale-Out - Performance Optimized Scenario] for SLES for SAP 15
+
+* https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html[SAP HANA System Replication Scale-Up - Cost Optimized Scenario]
+
+[IMPORTANT]
+====
+The Best-Practice guides on our website, mostly refer to classical on-premise installations. 
+There might be dedicated guides available from hyperscalers / public cloud providers, that can be found on the documentation website of the respective hyperscaler. 
+Please refer to the hyperscaler guides first. 
+They have precedence over our guides, when running SAP HA clusters in the cloud.
+====
+
+## SUSE Blog Article Series #TowardsZeroDowntime
+
+We are actively maintaining a blog article series, where we share interesting details, news and howtos about our HA solutions for SAP. This blog article series https://www.suse.com/c/tag/towardszerodowntime/[can be found here].
